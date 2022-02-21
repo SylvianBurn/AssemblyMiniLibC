@@ -1,12 +1,12 @@
 BITS 64
 SECTION .text
-GLOBAL my_strlen
+GLOBAL strlen
 
-my_strlen:
+strlen:
     MOV RAX, 0
 
 loop:
-    CMP BYTE [RDI + RAX], 0
+    CMP BYTE[RDI + RAX], 0
     JE end
     INC RAX
     JMP loop
