@@ -4,15 +4,16 @@ GLOBAL strchr
 
 strchr:
     MOV RAX, 0
-    MOV RCX, 0
+    XOR RCX, RCX
 
 loop:
-    CMP BYTE[RDI + RCX], 0 ;if str[index] != '\0'
+    MOVSX EDX, BYTE[RDI + RCX]
+    CMP EDX, 0
     JE end
     JMP loop2
 
 loop2:
-    CMP BYTE[RDI + RCX], RSI ;if str[index] == c
+    CMP EDX, ESI
     JE setter
     INC RCX;
     JMP loop

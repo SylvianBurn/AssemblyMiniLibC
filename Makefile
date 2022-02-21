@@ -6,17 +6,25 @@
 ##
 
 SRC	=	src/my_strlen.asm	\
-		src/strchr.asm
+		src/strchr.asm	\
+
+OBJ=	$(SRC:.asm=.o)
 
 NAME=	libasm.so
 
+CFLASG	=	-shared -fPIC
+
 all:	$(NAME)
 
-$(NAME):
-	nasm -f elf64 $(SRC)
+%.o	:	%.asm
+	nasm -o $@ $< -f elf64
+
+$(NAME):	$(OBJ)
+	ld $(CFLASG) -o $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)
+	rm a.out
 
 fclean: clean
 	rm -f $(NAME)
