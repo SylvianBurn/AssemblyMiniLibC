@@ -24,7 +24,6 @@ $(NAME):	$(OBJ)
 
 clean:
 	rm -f $(OBJ)
-	rm a.out
 
 fclean: clean
 	rm -f $(NAME)

@@ -2,7 +2,7 @@ BITS 64
 SECTION .text
 GLOBAL strchr
 
-sastrchr:
+strchr:
     MOV RAX, 0
     XOR RCX, RCX
 
