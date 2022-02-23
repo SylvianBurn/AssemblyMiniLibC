@@ -10,9 +10,6 @@ loop:
     MOVSX EDX, BYTE[RDI + RCX]
     CMP EDX, 0
     JE end
-    JMP loop2
-
-loop2:
     CMP EDX, ESI
     JE setter
     INC RCX;
@@ -21,13 +18,13 @@ loop2:
 setter:
     MOV RAX, RDI
     ADD RAX, RCX
+    INC RCX
     JMP loop
 
 setnull:
     MOV RAX, RDI
     ADD RAX, RCX
-    DEC RAX
-    JMP end
+    RET
 
 end:
     CMP ESI, 0
