@@ -1,8 +1,8 @@
 BITS 64
 SECTION .text
-GLOBAL strchr
+GLOBAL strrchr
 
-strchr:
+strrchr:
     MOV RAX, 0
     XOR RCX, RCX
 
@@ -21,7 +21,7 @@ loop2:
 setter:
     MOV RAX, RDI
     ADD RAX, RCX
-    JMP end
+    JMP loop
 
 setnull:
     MOV RAX, RDI
